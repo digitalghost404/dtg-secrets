@@ -4,6 +4,9 @@ echo "Installing dtg-secrets fish integration..."
 
 set script_dir (dirname (realpath (status --current-filename)))
 
+mkdir -p ~/.config/fish/conf.d
+mkdir -p ~/.config/fish/functions
+
 # Symlink conf.d files
 for f in $script_dir/fish/conf.d/*.fish
     set dest ~/.config/fish/conf.d/(basename $f)
