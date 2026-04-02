@@ -21,4 +21,9 @@ if test -d $PASSWORD_STORE_DIR
         (pass api-keys/voyage 2>/dev/null) \
         > ~/.config/pulse/env
     chmod 600 ~/.config/pulse/env
+
+    printf "GOVEE_API_KEY=%s\n" \
+        (pass api-keys/govee 2>/dev/null) \
+        > ~/.config/aether/env
+    chmod 600 ~/.config/aether/env
 end
