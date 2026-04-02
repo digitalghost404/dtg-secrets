@@ -9,3 +9,6 @@ else
     set -gx ELEVENLABS_API_KEY            (pass api-keys/elevenlabs 2>/dev/null)
     set -gx VOYAGE_API_KEY                (pass api-keys/voyage 2>/dev/null)
 end
+
+# Register event-driven hooks at shell startup
+source ~/.config/fish/functions/_auto_env_render.fish
