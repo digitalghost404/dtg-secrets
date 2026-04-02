@@ -12,3 +12,13 @@ end
 
 # Register event-driven hooks at shell startup
 source ~/.config/fish/functions/_auto_env_render.fish
+
+# Generate env files for systemd services (they can't read pass directly)
+if test -d $PASSWORD_STORE_DIR
+    printf "TAVILY_API_KEY=%s\nELEVENLABS_API_KEY=%s\nVOYAGE_API_KEY=%s\n" \
+        (pass api-keys/tavily 2>/dev/null) \
+        (pass api-keys/elevenlabs 2>/dev/null) \
+        (pass api-keys/voyage 2>/dev/null) \
+        > ~/.config/pulse/env
+    chmod 600 ~/.config/pulse/env
+end
